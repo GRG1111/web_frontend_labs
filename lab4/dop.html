@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васильев Георгий Евгеньевич. Облако тегов</title>
+    <style>
+    header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 100
+      }
+
+    .tag-cloud {
+      position: relative;
+      height: calc(100vh - 80px);
+    }
+
+    .tag-wrapper {
+      position: absolute;
+      transform-origin: center;
+    }
+
+    .tag {
+      display: inline-block;
+      transition: transform 0.3s, text-shadow 0.3s, z-index 0.3s;
+      animation: float 10s infinite ease-in-out alternate;
+      animation-play-state: running;
+    }
+
+    .tag:hover {
+      transform: scale(1.5);
+      z-index: 1000;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      animation-play-state: paused;
+    }
+
+    @keyframes float {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      25%  { transform: translate(10px, -15px) rotate(3deg); }
+      50%  { transform: translate(-10px, 10px) rotate(-3deg); }
+      75%  { transform: translate(5px, -10px) rotate(2deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .tag1  { animation-duration: 6s; animation-delay: 0s; }
+    .tag2  { animation-duration: 10s; animation-delay: 2s; }
+    .tag3  { animation-duration: 12s; animation-delay: 2s; }
+    .tag4  { animation-duration: 6s; animation-delay: 0.6s; }
+    .tag5  { animation-duration: 11s; animation-delay: 1.2s; }
+    .tag6  { animation-duration: 5s; animation-delay: 1.7s; }
+    .tag7  { animation-duration: 13s; animation-delay: 0.8s; }
+    .tag8  { animation-duration: 15s; animation-delay: 1.6s; }
+    .tag9  { animation-duration: 10s; animation-delay: 0.2s; }
+    .tag10 { animation-duration: 9s; animation-delay: 1.9s; }
+    .tag11 { animation-duration: 10s; animation-delay: 1.4s; }
+    .tag12 { animation-duration: 8s; animation-delay: 0.9s; }
+    .tag13 { animation-duration: 12s; animation-delay: 1.1s; }
+    .tag14 { animation-duration: 8s; animation-delay: 1.6s; }
+    .tag15 { animation-duration: 13s; animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    НГТУ, ФБ, Лабораторная работа 4
+  </header>
+
+
+  <div class="tag-cloud">
+    <span class="tag-wrapper" style="top: 12%; left: 22%; transform: rotate(-7deg);">
+      <span class="tag" style="color: #FF1493; font-size: 32px;">flexbox</span>
+    </span>
+    <span class="tag-wrapper" style="top: 18%; left: 52%; transform: rotate(6deg);">
+      <span class="tag" style="color: #9400D3; font-size: 96px;">animation</span>
+    </span>
+    <span class="tag-wrapper" style="top: 15%; left: 72%; transform: rotate(-4deg);">
+      <span class="tag" style="color: #2F4F4F; font-size: 28px;">border</span>
+    </span>
+    <span class="tag-wrapper" style="top: 32%; left: 32%; transform: rotate(-18deg);">
+      <span class="tag" style="color: #32CD32; font-size: 20px;">grid</span>
+    </span>
+    <span class="tag-wrapper" style="top: 42%; left: 62%; transform: rotate(20deg);">
+      <span class="tag" style="color: #FF6347; font-size: 22px;">transition</span>
+    </span>
+    <span class="tag-wrapper" style="top: 47%; left: 12%; transform: rotate(4deg);">
+      <span class="tag" style="color: #00FF00; font-size: 24px;">hover</span>
+    </span>
+    <span class="tag-wrapper" style="top: 63%; left: 82%; transform: rotate(-15deg);">
+      <span class="tag" style="color: #FFA500; font-size: 26px;">filter</span>
+    </span>
+    <span class="tag-wrapper" style="top: 68%; left: 52%; transform: rotate(1deg);">
+      <span class="tag" style="color: #DC143C; font-size: 36px;">viewport</span>
+    </span>
+    <span class="tag-wrapper" style="top: 78%; left: 27%; transform: rotate(6deg);">
+      <span class="tag" style="color: #FFD700; font-size: 54px;">opacity</span>
+    </span>
+    <span class="tag-wrapper" style="top: 33%; left: 83%; transform: rotate(3deg);">
+      <span class="tag" style="color: #FF00FF; font-size: 48px;">keyframes</span>
+    </span>
+    <span class="tag-wrapper" style="top: 58%; left: 37%; transform: rotate(-7deg);">
+      <span class="tag" style="color: #006400; font-size: 84px;">shadow</span>
+    </span>
+    <span class="tag-wrapper" style="top: 22%; left: 33%; transform: rotate(10deg);">
+      <span class="tag" style="color: #FFFF00; font-size: 26px;">radius</span>
+    </span>
+    <span class="tag-wrapper" style="top: 48%; left: 63%; transform: rotate(5deg);">
+      <span class="tag" style="color: #1E90FF; font-size: 20px;">scroll</span>
+    </span>
+    <span class="tag-wrapper" style="top: 78%; left: 73%; transform: rotate(-5deg);">
+      <span class="tag" style="color: #7CFC00; font-size: 24px;">blend</span>
+    </span>
+    <span class="tag-wrapper" style="top: 83%; left: 43%; transform: rotate(10deg);">
+      <span class="tag" style="color: #000000; font-size: 86px;">gradient</span>
+    </span>
+  </div>
+  
+  <footer>
+    &copy; Васильев Георгий, ФБИ-34, 2 курс, 2024 
+  </footer>
+
+</body>
+</html>
