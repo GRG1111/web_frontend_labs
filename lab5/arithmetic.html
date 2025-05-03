@@ -155,6 +155,14 @@
             alert(a + ' в степени ' + b + ' равно ' + result);
         }
 
+        function changeOutput(buttonNum, backColor, textColor, textBorder){
+                    let output = document.getElementById('output');
+                    output.innerHTML = "Нажата кнопка " + buttonNum;
+                    output.style.backgroundColor = backColor;
+                    output.style.color = textColor;
+                    output.style.borderStyle = textBorder;
+                }
+
     </script>
 </head>
 <body>
@@ -177,6 +185,14 @@
         <div class="message" onclick="composition()">Найти произведение чисел</div>
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
         <div class="message" onclick="showPower()">Найти степень чисел</div>
+
+        <div class="buttons">
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'red')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'yellow', 'black')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'gray', 'green')">
+        </div>
+        <div id="output"></div>
 
     </main>
 
