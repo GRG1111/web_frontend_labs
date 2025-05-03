@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Васильев Георгий Евгеньевич. Event</title>
+
+    </head>
+    <style>
+    footer {
+        position: absolute;
+        top: 100%;
+    }
+    #eventBlock {
+        width: 300px;
+        height: 300px;
+        border: 1px solid rgb(0, 0, 0);
+        background-color: #ffffff;
+        text-align: center;
+        line-height: 1.5;
+        padding-top: 10px;
+    }
+    </style>
+    
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div id="eventBlock" onmousemove="showCoords(event)"></div>
+    </main>
+
+
+    <script>
+        function showCoords(event) {
+            const block = document.getElementById('eventBlock');
+            let msg = `X: ${event.offsetX}<br>Y: ${event.offsetY}`;
+
+            block.style.color = "black";
+            block.style.backgroundColor = "#eee";
+            block.style.border = "2px solid black";
+
+            if (event.ctrlKey) {
+                msg += "<br>Нажата клавиша Ctrl";
+                block.style.color = "red";
+            }
+            if (event.altKey) {
+                msg += "<br>Нажата клавиша Alt";
+                block.style.backgroundColor = "#ffd";
+            }
+            if (event.shiftKey) {
+                msg += "<br>Нажата клавиша Shift";
+                block.style.border = "2px dashed blue";
+            }
+
+            block.innerHTML = msg;
+        }
+
+    </script>
+    
+    <footer>
+        &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+
+</html>
