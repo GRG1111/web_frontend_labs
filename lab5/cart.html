@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Васильев Георгий Евгеньевич. Корзина</title>
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+
+            padding: 40px 20px;
+        }
+        .container {
+            width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            padding: 32px 40px;
+            transition: box-shadow 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            color: #1f1f1f;
+            text-align: center;
+            margin-bottom: 36px;
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 1.5px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .product:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .product-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #000000;
+            flex: 1 1 150px;
+        }
+        .product-price {
+            flex: 0 0 110px;
+            font-size: 1rem;
+            color: #777;
+            text-align: right;
+            margin-right: 20px;
+            font-weight: 500;
+            user-select: none;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 10px 12px;
+
+            font-size: 1rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+            outline-offset: 2px;
+        }
+        input[type="number"]:focus {
+            border-color: #1f1f1f;
+            box-shadow: 0 0 6px rgba(168, 50, 50, 0.5);
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 38px;
+        }
+        button {
+            flex: 48%;
+            padding: 14px 0;
+            cursor: pointer;
+            color: white;
+            box-shadow: 0 4px 12px rgba(54, 54, 54, 0.3);
+        }
+        #calculate {
+            background: green
+        }
+
+        #clear {
+            background: red
+        }
+
+        #output {
+            margin-top: 28px;
+            padding: 16px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: black;
+            text-align: center;
+            border-radius: 10px;
+            min-height: 40px;
+            user-select: none;
+        }
+
+        </style>
+
+        <script>
+            function calculateTotal() {
+                const apples = parseInt(document.getElementById('apples').value) || 0;
+                const pears = parseInt(document.getElementById('pears').value) || 0;
+                const oranges = parseInt(document.getElementById('oranges').value) || 0;
+                const melons = parseInt(document.getElementById('melons').value) || 0;
+                
+                const total = (apples * 100) + (pears * 80) + (oranges * 150) + (melons * 300);
+                
+                document.getElementById('output').textContent = `Общая цена: ${total} рублей`;
+            }
+
+            function clearFields() {
+                document.getElementById('apples').value = '';
+                document.getElementById('pears').value = '';
+                document.getElementById('oranges').value = '';
+                document.getElementById('melons').value = '';
+                
+                document.getElementById('output').textContent = '';
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+            <hr>
+        </header>
+
+        <main>
+            <div class="container">
+                <h1>Корзина товаров</h1>
+                
+                <div class="product">
+                    <span class="product-name">Яблоки</span>
+                    <span class="product-price">100 руб/шт</span>
+                    <input type="number" id="apples" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="product">
+                    <span class="product-name">Груши</span>
+                    <span class="product-price">80 руб/шт</span>
+                    <input type="number" id="pears" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="product">
+                    <span class="product-name">Апельсины</span>
+                    <span class="product-price">150 руб/шт</span>
+                    <input type="number" id="oranges" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="product">
+                    <span class="product-name">Дыни</span>
+                    <span class="product-price">300 руб/шт</span>
+                    <input type="number" id="melons" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="buttons">
+                    <button id="calculate" onclick="calculateTotal()">Рассчитать</button>
+                    <button id="clear" onclick="clearFields()">Очистить</button>
+                </div>
+                
+                <div id="output"></div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+        </footer>
+    </body>
+</html>
