@@ -72,6 +72,22 @@
             let author = "Эта страница заблокирована";
             alert(author)
         }
+        function difference(){
+                let inputA = document.getElementById('numberA');
+                let inputB = document.getElementById('numberB');
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a - b;
+                alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+        }  
+        function composition(){
+                let inputA = document.getElementById('numberA');
+                let inputB = document.getElementById('numberB');
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a * b;
+                alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
+        }
     </script>
 </head>
 <body>
@@ -90,6 +106,8 @@
 
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
         <div class="message" onclick="show1()">Узнать, кто автор страницы</div>
+        <div class="message" onclick="difference()">Найти разность чисел</div>
+        <div class="message" onclick="composition()">Найти произведение чисел</div>
 
     </main>
 
