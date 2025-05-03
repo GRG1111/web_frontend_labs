@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Васильев Георгий Евгеньевич. Лабораторная 5</title>
+    <style>
+        footer {
+        position: absolute;
+        top: 100%;
+        }
+
+        input[type="number"] {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            margin-bottom: 15px;
+        }
+        
+        .message {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .message:hover {
+            background: #555;
+        }
+        
+        div.buttons {
+            margin: 20px 0;
+        }
+        
+        input[type="button"] {
+            background: #353535;
+            color: white;
+            cursor: pointer;
+        }
+        
+        input[type="button"]:hover {
+            background: #5b5b5b;
+        }
+        
+        .output {
+            padding: 15px;
+            background: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        function showSum() {
+
+            let a = 5154
+            let b = 7891
+            let result = a + b;
+            alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
+        }
+
+        function show1(){
+                let author = "Автор страницы: \nВасильев Георгий";
+                alert(author)
+        }
+        function show2(){
+            let author = "Эта страница заблокирована";
+            alert(author)
+        }
+    </script>
+</head>
+<body>
+    <header onclick="show2()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+
+        <div class="message" onclick="showSum()">Найти сумму чисел</div>
+        <div class="message" onclick="show1()">Узнать, кто автор страницы</div>
+
+    </main>
+
+    <footer>
+        &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
