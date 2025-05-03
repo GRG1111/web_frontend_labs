@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Васильев Георгий Евгеньевич. Фильтры</title>
+    </head>
+    <style>
+        footer {
+            position: absolute;
+            top: 100%;
+        }
+        div{
+            text-align: center;
+        }
+        img{
+            width: 30%;
+        }
+    </style>
+    <script>
+        function blurChange(){
+            let value = document.getElementById('blurValue').value + 'px';
+            document.getElementById('blurOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'blur(' + value +')';
+        }
+
+
+    </script>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+
+        <main>
+            <div>
+                blur:
+                <input type="range"  value="0" min="0" max="20" onchange="blurChange()" id="blurValue">
+                <span id="blurOutput"></span>
+            </div>
+
+
+
+
+            <div class="img">
+                <img src="123.jpeg" id="blurImage">
+            </div>
+        </main>
+
+        <footer>
+            &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+        </footer>
+        
+    </body>
+</html>
