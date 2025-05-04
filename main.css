@@ -1,6 +1,7 @@
 a { 
     text-decoration: none; 
     color: rgb(60, 255, 0);
+    transition: 1s 2s; 
 } 
  
 a:link { 
@@ -15,7 +16,8 @@ a:visited {
  
 a:hover { 
     color: rgb(1, 0, 34); 
-    text-decoration: underline; 
+    text-decoration: underline;
+    transition: 0.3s; 
 } 
  
 a:active { 
