@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Курс валют | Совкомбанк</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background-color: #002244;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #003366;
+    }
+
+    nav a.active {
+      background-color: #004488;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 40px;
+      max-width: 1000px;
+    }
+
+    .calculator {
+      margin-bottom: 40px;
+    }
+
+    .calculator input {
+      padding: 10px;
+      margin: 5px;
+      width: 150px;
+    }
+
+    .calculator select {
+      padding: 10px;
+      margin: 5px;
+    }
+
+    .calculator button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #004488;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      background-color: #0066aa;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .chart-container {
+      width: 100%;
+      max-width: 800px;
+      margin-top: 40px;
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 8px;
+      display: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Меню -->
+  <nav>
+    <a href="about.html">О компании</a>
+    <a href="news.html">Новости</a>
+    <a href="currency.html" class="active">Курс валют</a>
+    <a href="contacts.html">Контактные данные</a>
+    <a href="video.html">Видео</a>
+  </nav>
+
+  <!-- Контент -->
+  <div class="content">
+    <h1>Курс валют</h1>
+
+    <!-- Калькулятор валют -->
+    <div class="calculator">
+      <h2>Калькулятор валют</h2>
+      <label for="amount">Сумма:</label>
+      <input type="number" id="amount" placeholder="Введите сумму">
+      <select id="direction">
+        <option value="rub_to_krw">RUB → KRW</option>
+        <option value="krw_to_rub">KRW → RUB</option>
+      </select>
+      <button onclick="convertCurrency()">Конвертировать</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <!-- Диаграмма -->
+    <div class="chart-container">
+      <h2>Изменение курса KRW за последний месяц</h2>
+      <canvas id="exchangeChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Скрипты -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Актуальный курс KRW к RUB
+    const krwToRubRate = 0.0569112; // 1 KRW = 0.0569112 RUB
+    const rubToKrwRate = 1 / krwToRubRate;
+
+    function convertCurrency() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const direction = document.getElementById('direction').value;
+      let result = 0;
+
+      if (isNaN(amount)) {
+        document.getElementById('result').textContent = 'Пожалуйста, введите корректную сумму.';
+        return;
+      }
+
+      if (direction === 'rub_to_krw') {
+        result = amount * rubToKrwRate;
+        document.getElementById('result').textContent = `${amount} RUB = ${result.toFixed(2)} KRW`;
+      } else {
+        result = amount * krwToRubRate;
+        document.getElementById('result').textContent = `${amount} KRW = ${result.toFixed(2)} RUB`;
+      }
+    }
+
+    // Данные для диаграммы (примерные данные за последние 30 дней)
+    const labels = [
+      '01.05', '02.05', '03.05', '04.05', '05.05', '06.05', '07.05', '08.05', '09.05', '10.05',
+      '11.05', '12.05', '13.05', '14.05', '15.05', '16.05', '17.05', '18.05', '19.05', '20.05',
+      '21.05', '22.05', '23.05', '24.05', '25.05', '26.05', '27.05', '28.05', '29.05', '30.05'
+    ];
+
+    const data = [
+      0.0565, 0.0567, 0.0566, 0.0568, 0.0569, 0.0570, 0.0569, 0.0568, 0.0567, 0.0566,
+      0.0565, 0.0564, 0.0563, 0.0562, 0.0561, 0.0560, 0.0559, 0.0558, 0.0557, 0.0556,
+      0.0555, 0.0554, 0.0553, 0.0552, 0.0551, 0.0550, 0.0549, 0.0548, 0.0547, 0.0546
+    ];
+
+    const ctx = document.getElementById('exchangeChart').getContext('2d');
+    const exchangeChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Курс KRW к RUB',
+          data: data,
+          backgroundColor: 'rgba(0, 68, 136, 0.6)',
+          borderColor: 'rgba(0, 68, 136, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `Дата: ${context.label}, Курс: ${context.parsed.y.toFixed(6)} RUB`;
+              }
+            }
+          }
+        },
+        onClick: (e, elements) => {
+          if (elements.length > 0) {
+            const index = elements[0].index;
+            const date = labels[index];
+            const rate = data[index];
+            alert(`Дата: ${date}\nКурс: ${rate.toFixed(6)} RUB`);
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'Курс (RUB)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Дата'
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
