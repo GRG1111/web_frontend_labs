@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Видео | Совкомбанк</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background-color: #002244;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #003366;
+    }
+
+    nav a.active {
+      background-color: #004488;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 40px;
+      max-width: 1000px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #002244;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; 
+      height: 0;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="about.html">О компании</a>
+    <a href="news.html">Новости</a>
+    <a href="currency.html">Курс валют</a>
+    <a href="contacts.html">Контактные данные</a>
+    <a href="video.html" class="active">Видео</a>
+  </nav>
+
+  <div class="content">
+    <h1>Видео о Совкомбанке</h1>
+    <p>Небольшой видеоролик, рассказывающий о компании, её направлениях и деятельности:</p>
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/s0faK98ehlo" allowfullscreen></iframe>
+    </div>
+  </div>
+
+</body>
+</html>
