@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Контактные данные | Совкомбанк</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background-color: #002244;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #003366;
+    }
+
+    nav a.active {
+      background-color: #004488;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 40px;
+      max-width: 1000px;
+      box-sizing: border-box;
+    }
+
+    h1, h2 {
+      color: #002244;
+    }
+
+    .contact-info {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .map-full {
+      width: 100vw;
+      height: 500px;
+      margin-top: 20px;
+      border: none;
+      margin-left: 0;
+    }
+
+    .map-wrapper {
+      margin-left: 220px;
+      width: calc(100vw - 220px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Меню -->
+  <nav>
+    <a href="about.html">О компании</a>
+    <a href="news.html">Новости</a>
+    <a href="currency.html">Курс валют</a>
+    <a href="contacts.html" class="active">Контактные данные</a>
+    <a href="video.html">Видео</a>
+  </nav>
+
+  <!-- Контент -->
+  <div class="content">
+    <h1>Контактные данные</h1>
+    <div class="contact-info">
+      <p><strong>Головной офис:</strong><br>
+      115114, г. Москва, ул. Дербеневская, д. 15, стр. 12</p>
+
+      <p><strong>Телефоны:</strong><br>
+      +7 (495) 988-00-00<br>
+      8 (800) 200-66-96</p>
+
+      <p><strong>Email:</strong><br>
+      <a href="mailto:info@sovcombank.ru">info@sovcombank.ru</a></p>
+    </div>
+    <h2>Офисы на карте</h2>
+  </div>
+
+  <!-- Карта растянута на всю ширину -->
+  <div class="map-wrapper">
+    <iframe class="map-full"
+      src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab607f4c3e8f7c8e1de35c6acfa01ea92a28925f83e02fc80bbfc11b41cf12598&amp;source=constructor">
+    </iframe>
+  </div>
+
+</body>
+</html>
