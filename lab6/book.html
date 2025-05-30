@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васильев Георгий Евгеньевич. Книги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        .book {
+            margin: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .bestseller {
+            background: #f8f8f8;
+            border-left: 4px solid #454545;
+        }
+        .outofstock {
+            opacity: 0.6;
+            background-color: #f9f9f9;
+        }
+        .label {
+            display: inline-block;
+            padding: 3px 8px;
+            margin-top: 5px;
+            border-radius: 3px;
+        }
+        .label.bestseller {
+            background-color: #000000;
+            color: white;
+        }
+
+    </style>
+</head>
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <div id="booklist"></div>
+    </main>
+
+    <script>
+        const books = [
+            {name: "<h3>Мастер и Маргарита</h3>", author: "Михаил Булгаков", year: 1967, price: 25, bestseller: true, inStock: true},
+            {name: "<h3>Преступление и наказание</h3>", author: "Фёдор Достоевский", year: 1866, price: 30, bestseller: true, inStock: false},
+            {name: "<h3>Война и мир</h3>", author: "Лев Толстой", year: 1869, price: 45, bestseller: false, inStock: true},
+            {name: "<h3>Гарри Поттер и философский камень</h3>", author: "Джоан Роулинг", year: 1997, price: 35, bestseller: true, inStock: true},
+            {name: "<h3>Три товарища</h3>", author: "Эрих Мария Ремарк", year: 1936, price: 28, bestseller: false, inStock: true},
+            {name: "<h3>Анна Каренина</h3>", author: "Лев Толстой", year: 1877, price: 32, bestseller: false, inStock: false},
+            {name: "<h3>Маленький принц</h3>", author: "Антуан де Сент-Экзюпери", year: 1943, price: 20, bestseller: true, inStock: true},
+            {name: "<h3>Тень горы</h3>", author: "Грегори Дэвид Робертс", year: 2010, price: 40, bestseller: true, inStock: true},
+            {name: "<h3>451 градус по Фаренгейту</h3>", author: "Рэй Брэдбери", year: 1953, price: 22, bestseller: false, inStock: true},
+            {name: "<h3>Атлант расправил плечи</h3>", author: "Айн Рэнд", year: 1957, price: 50, bestseller: true, inStock: false}
+        ];
+
+        function showBooks() {
+            const list = document.getElementById("booklist");
+            list.innerHTML = "";
+            
+            books.forEach(book => {
+                const div = document.createElement("div");
+                div.className = "book" + 
+                    (book.bestseller ? " bestseller" : "") + 
+                    (book.inStock ? "" : " outofstock");
+                
+                div.innerHTML = `
+                    ${book.name}
+                    <p><strong>Автор:</strong> ${book.author}</p>
+                    <p><strong>Год издания:</strong> ${book.year}</p>
+                    <p><strong>Цена:</strong> $${book.price}</p>
+                    <p><em>${book.inStock ? "В наличии" : "Нет в наличии"}</em></p>
+                `;
+                
+                if (book.bestseller) {
+                    const label = document.createElement("span");
+                    label.textContent = "Бестселлер";
+                    label.className = "label bestseller";
+                    div.appendChild(label);
+                }
+                
+                list.appendChild(div);
+            });
+        }
+    </script>
+
+    <footer>
+        &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
