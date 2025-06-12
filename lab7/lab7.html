@@ -9,20 +9,38 @@
     <link rel="icon" href="../favicon-32x32.png">
     <link rel="icon" href="../favicon-16x16.png">
 </head>
-<body>
-    <header>
-        НГТУ, ФБ, Лабораторная работа 7
-        <hr>
-    </header>
-    
-    <main>
-        <ul>
+    <style>
+        .new-block {
+            margin: 10px;
+            border: 2px solid rgb(255, 0, 0);
+            border-radius: 10px;
+            padding: 8px;
+        }
+    </style>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+            <hr>
+        </header>
+        
+        <main>
+            <button onclick="addNewBlock()">Добавить блок</button>
+            <ul>
 
-        </ul>
-    </main>
+            </ul>
+        </main>
 
-    <footer>
-        &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
-    </footer>
-</body>
+        <script>
+            function addNewBlock() {
+                let newBlock = document.createElement("div");
+                newBlock.className = "new-block";
+
+                document.querySelector('main').appendChild(newBlock);
+                }
+        </script>
+
+        <footer>
+            &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+        </footer>
+    </body>
 </html>
