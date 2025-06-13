@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васильев Георгий Евгеньевич. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+</head>
+    <style>
+        .new-block {
+            margin: 10px;
+            border: 2px solid rgb(255, 0, 0);
+            border-radius: 10px;
+            padding: 8px;
+        }
+    </style>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+            <hr>
+        </header>
+        
+        <main>
+            <button onclick="addNewBlock()">Добавить блок</button>
+            <ul>
+                <li><a href="dollar.html">Таблица умножения</a></li>
+                <li><a href="company.html">Котировки компании</a></li>
+                <li><a href="euro.html">Запрос данных методом fetch</a></li>
+                <li><a href="weather.html">Прогноз погоды</a></li>
+                <li><a href="dopi.html">Дополнительное задание</a></li>
+            </ul>
+        </main>
+
+        <script>
+            function addNewBlock() {
+                let newBlock = document.createElement("div");
+                newBlock.className = "new-block";
+
+                document.querySelector('main').appendChild(newBlock);
+                }
+        </script>
+
+        <footer>
+            &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+        </footer>
+    </body>
+</html>

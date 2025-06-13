@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Васильев Георгий Евгеньевич. Курс доллара</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+        <hr>
+    </header>
+
+    <main>
+        <button onclick="showExchange()">Показать курс $</button>
+        <table border="1" id="dollar-table"></table>
+        <div id="detail"></div>
+    </main>
+
+    <script>
+        const exchange = [79.01, 78.61, 79.15, 79.17, 79.12, 78.51, 78.86, 79.12, 78.61, 78.49];
+        function showExchange() {
+            const table = document.getElementById("dollar-table");
+            table.innerHTML = "";
+            for (let i = 0; i < exchange.length; i++) {
+                const row = document.createElement("tr");
+                const cell = document.createElement("td");
+                cell.textContent = exchange[i];
+                row.appendChild(cell);
+                table.appendChild(row);
+            }
+
+            const sum = exchange.reduce((a, b) => a + b, 0);
+            const avg = (sum / exchange.length).toFixed(2);
+            const detail = document.getElementById("detail");
+            detail.textContent = "Среднее значение курса: " + avg;
+
+            event.target.style.display = "none";
+        }
+    </script>
+
+    <footer>
+        &copy; Васильев Георгий, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
